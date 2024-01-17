@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "892829035336",
+    "firebase_url": "https://zoominside-2ccf3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "zoominside-2ccf3",
+    "storage_bucket": "zoominside-2ccf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892829035336:android:fcf28779601182b7f3217d",
+        "android_client_info": {
+          "package_name": "com.zoominside.zoominside"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892829035336-r9g0j63d344ou6tsk98uj0f5pieqm1bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk45Gahv63iEz1MdbcGeb_c1sSeXazSUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892829035336-r9g0j63d344ou6tsk98uj0f5pieqm1bh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
