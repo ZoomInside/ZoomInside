@@ -14,7 +14,13 @@
                 CornerRadius="20"
                 Margin="15"
                 Clicked="OnCounterClicked" />
-        
+
+        <Button HorizontalOptions="Center"
+                Text="Go to Camera Accessment"
+                CornerRadius="15"
+                Margin="15"
+                Clicked="OnPushAsyncBtn" />
+
     </StackLayout>
 
 </ContentPage>

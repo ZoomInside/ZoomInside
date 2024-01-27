@@ -1,6 +1,18 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using System.Collections.ObjectModel;
+using Emgu.CV;
+using Emgu.CV.OCR;
+using Emgu.CV.Util;
+using Tesseract;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+using Microsoft.Maui.Controls;
+using System;
+using System.Drawing;
+using Pix = Emgu.CV.OCR.Pix;
+using FireSharp.Config;
+using FireSharp.Interfaces;
 
 namespace ZoomInside
 {
@@ -19,6 +31,11 @@ namespace ZoomInside
             {
                 Title = TitleEntry.Text,
             });
+        }
+
+        private async void OnPushAsyncBtn(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CameraAccessment());
         }
     }
 }
