@@ -13,8 +13,8 @@
             HorizontalOptions="Fill">
             
             <cv:CameraView x:Name="cameraView"
-                           VerticalOptions="Fill"
-                           HorizontalOptions="Fill"
+                           WidthRequest="300"
+                           HeightRequest="300"
                            CamerasLoaded="cameraView_CamerasLoaded"/>
             
             <HorizontalStackLayout HorizontalOptions="Center">
@@ -30,8 +30,7 @@
                     VerticalOptions="Fill"
                     HorizontalOptions="Fill" />
 
-            <Entry x:Name="extractEntry" 
-                   Placeholder="Here's the extract text place"
+            <Label x:Name="extractEntry"
                    HorizontalOptions="Center" />
 
         </VerticalStackLayout>
