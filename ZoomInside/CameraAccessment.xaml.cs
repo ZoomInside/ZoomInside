@@ -8,12 +8,18 @@ namespace ZoomInside;
 
 public partial class CameraAccessment : ContentPage
 {
-	public CameraAccessment()
+    public double ScreenWidth { get; set; }
+    public CameraAccessment()
 	{
 		InitializeComponent();
-    }
 
-    string pathSaver = "";
+        // Get the device's screen height
+        ScreenWidth = Math.Round(DeviceDisplay.MainDisplayInfo.Width / 3);
+
+        // Set the binding context to the current instance of the page (this)
+        this.BindingContext = this;        
+    }
+    
     private void cameraView_CamerasLoaded(object sender, EventArgs e)
     {
         cameraView.Camera = cameraView.Cameras.First();
@@ -23,54 +29,36 @@ public partial class CameraAccessment : ContentPage
             await cameraView.StopCameraAsync();
             await cameraView.StartCameraAsync();
         });
-    }
-    
-    private void Button_Clicked(object sender, EventArgs e)
-    {
-        string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "snapshots");
+    }   
 
-        // Ensure the folder exists; create it if it doesn't
-        if (!Directory.Exists(folderPath))
-        {
-            Directory.CreateDirectory(folderPath);
-        }
-        string fileName = "myImage.png";
-        string fullPath = Path.Combine(folderPath, fileName);
-        pathSaver = fullPath;
+    private void Button_Clicked_2(object sender, EventArgs e)
+    {
+        CameraFunctionalities cameraFunctionalities = new CameraFunctionalities();
+
+        var fullPath = cameraFunctionalities.CreateDirectory();
 
         // Saving the snapshot into the Snapshots folder
         ImageSource imagesource = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
         cameraView.SaveSnapShot(Camera.MAUI.ImageFormat.PNG, fullPath);
 
         // Presenting the snapshot directly into the App
-        myImage.Source = imagesource;
-    }
+        //myImage.Source = imagesource;
 
-    private void Button_Clicked_1(object sender, EventArgs e)
-    {
+
         // Turn the image to binary
-        byte[] imageBytes = File.ReadAllBytes(pathSaver);
-        
+        byte[] imageBytes = File.ReadAllBytes(fullPath);
+
         // Accessing the API
-        var client = new RestClient("https://api.apilayer.com/image_to_text/upload");
-        client.Timeout = -1;
-
-        var request = new RestRequest(Method.POST);
-        request.AddHeader("apikey", "5vHByvhtnEVeseg5YQyJwSzoYYI6N4nq");
-
-        request.AddParameter("text/plain", imageBytes, ParameterType.RequestBody);
-
-        // Getting the text from the image
-        IRestResponse response = client.Execute(request);
-        var text = response.Content;
+        var extractedText = cameraFunctionalities.TextExtract(imageBytes);
 
 
         // Using our class to be able to manipulate cyrillic text
         var extractor = new ExtractingCyrillic();
-        var formattedText = extractor.Format(text);
-
+        var formattedText = extractor.Format(extractedText);
         var toCyrillic = extractor.ToCyrillic(formattedText);
 
-        extractEntry.Text = toCyrillic.ToLower();
+        extractLabel.Text = toCyrillic.ToLower();
+
+        tester.Source = imagesource;
     }
 }

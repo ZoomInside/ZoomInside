@@ -11,7 +11,7 @@ namespace ZoomInside
         public string Format(string text)
         {
             var item_to_find = "annotations";
-            var index = text.IndexOf(item_to_find);
+            var index = Math.Abs(text.IndexOf(item_to_find));
 
             var substract = text.Substring(index);
             substract = substract.Replace("[", "");
@@ -107,21 +107,18 @@ namespace ZoomInside
                 {
                     var spaceIndex = result[i].IndexOf(' ');
                     result[i] = result[i].Remove(spaceIndex, 1);
-                    //Console.Write(' ');
                     final += ' ';
                 }
                 if (item.Contains('.'))
                 {
                     var spaceIndex = result[i].IndexOf('.');
                     result[i] = result[i].Remove(spaceIndex, 1);
-                    //Console.Write('.');
                     final += '.';
                 }
 
                 // Print the word
                 if (unicodeDictionary.ContainsKey(result[i]))
                     final += unicodeDictionary[result[i]];
-                    //Console.Write(unicodeDictionary[result[i]]);
 
                 i++;
             }

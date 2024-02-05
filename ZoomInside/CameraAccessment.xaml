@@ -3,35 +3,32 @@
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZoomInside.CameraAccessment"
-             Title="CameraAccessment">   
+             Title="CameraAccessment" >   
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Fill"
-            HorizontalOptions="Fill">
+        <VerticalStackLayout>
             
             <cv:CameraView x:Name="cameraView"
-                           WidthRequest="300"
-                           HeightRequest="300"
-                           CamerasLoaded="cameraView_CamerasLoaded"/>
-            
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Button Text="Smile!"
-                        Clicked="Button_Clicked" 
-                        Margin="15" />
-                <Button Text="Extract the text by me"
-                        Clicked="Button_Clicked_1" 
-                        Margin="15" />
-            </HorizontalStackLayout>
-            
-            <Image x:Name="myImage"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="Fill" />
+                           HorizontalOptions="{Binding ScreenWidth}"
+                           HeightRequest="{Binding ScreenWidth}"                           
+                           CamerasLoaded="cameraView_CamerasLoaded"
+                           Margin="0, 20 , 0, 0"/>
 
-            <Label x:Name="extractEntry"
-                   HorizontalOptions="Center" />
+            <Button CornerRadius="100"
+                    HorizontalOptions="Center"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    BorderColor="Black"
+                    BackgroundColor="Transparent"
+                    BorderWidth="4"
+                    Margin="15"
+                    Clicked="Button_Clicked_2" />
+
+            <Image x:Name="tester" />
+
+            <Label x:Name="extractLabel"
+                    Margin="15"
+                    HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -49,6 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="images\camera.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Camera.MAUI" Version="1.4.4" />
 		<PackageReference Include="Emgu.CV" Version="4.8.1.5350" />
 		<PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
@@ -56,6 +60,10 @@
 		<PackageReference Include="LeptonicaSharp" Version="1.77.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Tesseract" Version="5.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="images\camera.png" />
 	</ItemGroup>
 
 	<ItemGroup>
