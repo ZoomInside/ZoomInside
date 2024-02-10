@@ -9,6 +9,13 @@ namespace ZoomInside;
 public partial class CameraAccessment : ContentPage
 {
     public double ScreenWidth { get; set; }
+
+    private async Task LoadDataAsync()
+    {
+        // Simulate loading data asynchronously
+        await Task.Delay(3000); // Placeholder for actual data loading code
+    }
+
     public CameraAccessment()
 	{
 		InitializeComponent();
@@ -31,7 +38,7 @@ public partial class CameraAccessment : ContentPage
         });
     }   
 
-    private void Button_Clicked_2(object sender, EventArgs e)
+    private async void Button_Clicked_2(object sender, EventArgs e)
     {
         CameraFunctionalities cameraFunctionalities = new CameraFunctionalities();
 
@@ -39,11 +46,13 @@ public partial class CameraAccessment : ContentPage
 
         // Saving the snapshot into the Snapshots folder
         ImageSource imagesource = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
-        cameraView.SaveSnapShot(Camera.MAUI.ImageFormat.PNG, fullPath);
+        await cameraView.SaveSnapShot(Camera.MAUI.ImageFormat.PNG, fullPath);
 
-        // Presenting the snapshot directly into the App
-        //myImage.Source = imagesource;
+        // Show the activity indicator
+        activityIndicator.IsRunning = true;
+        activityIndicator.IsVisible = true;
 
+        await LoadDataAsync();
 
         // Turn the image to binary
         byte[] imageBytes = File.ReadAllBytes(fullPath);
@@ -51,14 +60,38 @@ public partial class CameraAccessment : ContentPage
         // Accessing the API
         var extractedText = cameraFunctionalities.TextExtract(imageBytes);
 
-
         // Using our class to be able to manipulate cyrillic text
         var extractor = new ExtractingCyrillic();
         var formattedText = extractor.Format(extractedText);
-        var toCyrillic = extractor.ToCyrillic(formattedText);
 
-        extractLabel.Text = toCyrillic.ToLower();
+        // Hide the activity indicator
+        activityIndicator.IsRunning = false;
+        activityIndicator.IsVisible = false;
 
+        var languageType = extractor.IsCyrillic(extractedText);
+
+        string[] cyrillicLangs = { "ru", "bg", "kk", "tg", "be", "sr", "ua", "ky", "mn", "mk", "me", "md" };
+        bool isCyrillic = false;
+        foreach (var item in cyrillicLangs)
+        {
+            if (languageType == item)
+            {
+                isCyrillic = true;
+                break;
+            }
+        }
+
+        var result = "";
+        if (isCyrillic == true)
+            result = extractor.ToCyrillic(formattedText).ToLower();
+        else
+            result = formattedText.ToLower();
+
+        extractLabel.Text = result;
         tester.Source = imagesource;
+
+        List<string> splitedResult = result
+            .Split()
+            .ToList();
     }
 }

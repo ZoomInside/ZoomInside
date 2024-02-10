@@ -3,24 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZoomInside.MainPage">
 
+
     <StackLayout>
-        <Entry x:Name="TitleEntry" 
-               HorizontalOptions="Center"
-               Placeholder="Enter my firebase"
+        <Entry x:Name="keyWord"
+               Placeholder="Enter your key"
                Margin="15" />
+        <Entry x:Name="eType"
+               Placeholder="Type the E with its number"
+               Margin="15" />
+        <Entry x:Name="explanationEntry"
+               Placeholder="Type your key" 
+               Margin="15"/>
+        <Button Text="Get the value you want"
+                Clicked="GetByKey"
+                Margin="15"/>
 
-        <Button HorizontalOptions="Center"
-                Text="Save"
-                CornerRadius="20"
-                Margin="15"
-                Clicked="OnCounterClicked" />
+        <CollectionView ItemsSource="{Binding EsItems}"
+                        Margin="15">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Info}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-        <Button HorizontalOptions="Center"
-                Text="Go to Camera Accessment"
-                CornerRadius="15"
-                Margin="15"
-                Clicked="OnPushAsyncBtn" />
+        <Button Text="Camera"
+                Clicked="Button_Clicked"
+                Margin="15" />
 
     </StackLayout>
+
 
 </ContentPage>

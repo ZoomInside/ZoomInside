@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ZoomInside
 {
     public class ExtractingCyrillic
     {
+        public string IsCyrillic(string extractedText)
+        {
+            var index = extractedText.IndexOf(" ");
+            var langSubstract = extractedText.Substring(index + 2, 2);
+
+            return langSubstract;
+        }
         public string Format(string text)
         {
             var item_to_find = "annotations";

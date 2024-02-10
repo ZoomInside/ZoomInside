@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace ZoomInside
 {
+    public class EsItem
+    {
+        public string Info { get; set; }
+    }
     public class TodoItem
     {
         public string Title { get; set; }

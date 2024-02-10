@@ -1,41 +1,57 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using System.Collections.ObjectModel;
-using Emgu.CV;
-using Emgu.CV.OCR;
-using Emgu.CV.Util;
-using Tesseract;
-using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
 using Microsoft.Maui.Controls;
 using System;
 using System.Drawing;
-using Pix = Emgu.CV.OCR.Pix;
-using FireSharp.Config;
-using FireSharp.Interfaces;
+
 
 namespace ZoomInside
-{
+{    
     public partial class MainPage : ContentPage
-    {        
+    {
+        public ObservableCollection<EsItem> EsItems { get; set; } = new ObservableCollection<EsItem>();
+
+        FirebaseClient firebaseClient = 
+            new FirebaseClient("https://zoominside-2ccf3-default-rtdb.europe-west1.firebasedatabase.app/");
+                
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        FirebaseClient firebaseClient = new FirebaseClient("https://zoominside-2ccf3-default-rtdb.europe-west1.firebasedatabase.app/");
+            BindingContext = this;
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            firebaseClient.Child("Todo").PostAsync(new TodoItem
+            var collection = firebaseClient
+            .Child("Es")
+            .AsObservable<EsItem>()
+            .Subscribe((item) =>
             {
-                Title = TitleEntry.Text,
+                if (item.Object != null)
+                {
+                    EsItems.Add(item.Object);
+                }
             });
+
+            string[] arr = { "1", "2", "3", "4", "5", "6" };
+
+
+        }
+        
+        private void GetByKey(object sender, EventArgs e)
+        {
+            var fullText = eType.Text + ": " + explanationEntry.Text;
+            var a = firebaseClient.Child("Es").PostAsync(new EsItem
+            {
+                Info = fullText,
+            });
+
+            eType.Text = string.Empty;
+            explanationEntry.Text = string.Empty;
         }
 
-        private async void OnPushAsyncBtn(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CameraAccessment());
+            Navigation.PushAsync(new CameraAccessment());
         }
     }
 }
