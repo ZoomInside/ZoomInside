@@ -5,9 +5,6 @@
 
 
     <StackLayout>
-        <Entry x:Name="keyWord"
-               Placeholder="Enter your key"
-               Margin="15" />
         <Entry x:Name="eType"
                Placeholder="Type the E with its number"
                Margin="15" />
@@ -17,15 +14,9 @@
         <Button Text="Get the value you want"
                 Clicked="GetByKey"
                 Margin="15"/>
-
-        <CollectionView ItemsSource="{Binding EsItems}"
-                        Margin="15">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Label Text="{Binding Info}" />
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Label x:Name="resultLabel"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
 
         <Button Text="Camera"
                 Clicked="Button_Clicked"
