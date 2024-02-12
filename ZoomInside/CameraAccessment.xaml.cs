@@ -4,21 +4,27 @@ using System.Reflection.Emit;
 using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
+using Firebase.Database;
+using Mopups.Services;
+using Mopups.Interfaces;
+//using Mopups.Services;
+//using Mopups.Interfaces;
+//using MauiMopupsSample;
 
 namespace ZoomInside;
 
 public partial class CameraAccessment : ContentPage
 {
+    FirebaseClient firebaseClient =
+            new FirebaseClient("https://zoominside-2ccf3-default-rtdb.europe-west1.firebasedatabase.app/");
     private async Task LoadDataAsync()
     {
         // Simulate loading data asynchronously
         await Task.Delay(3000); // Placeholder for actual data loading code
     }
-
     public double ScreenWidth { get; set; }
 
-
-
+    
     public CameraAccessment()
 	{
 		InitializeComponent();
@@ -27,7 +33,8 @@ public partial class CameraAccessment : ContentPage
         ScreenWidth = Math.Round(DeviceDisplay.MainDisplayInfo.Width / 3);
 
         // Set the binding context to the current instance of the page (this)
-        this.BindingContext = this;        
+        this.BindingContext = this;
+
     }
     
     private void cameraView_CamerasLoaded(object sender, EventArgs e)
@@ -77,12 +84,50 @@ public partial class CameraAccessment : ContentPage
         activityIndicator.IsVisible = false;
 
         char[] splitCharacters = { '{', '}', ' ', ',', '[', ']' };
-        List<string> resultTxt = unescapedFormattedText.Split(splitCharacters).ToList();
+        List<string> resultTxt = unescapedFormattedText
+            .Split(splitCharacters, StringSplitOptions.RemoveEmptyEntries)
+            .ToList();
 
-        extractLabel.Text = string.Empty;
+        for (var i = 0; i < resultTxt.Count; i++)
+        {
+            resultTxt[i] = resultTxt[i].ToLower();
+        }
+
+        /*extractLabel.Text = string.Empty;
         foreach (var item in resultTxt)
         {
             extractLabel.Text += item + " ";
+        }*/
+
+        var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
+        List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
+
+        List<string> propertyValues = new List<string>();
+        foreach (var item in dataList)
+        {
+            propertyValues.Add(item.Info);
         }
+        for (int i = 0; i < propertyValues.Count; i++)
+        {
+            propertyValues[i] = propertyValues[i].ToLower();
+        }
+
+        var final = new List<string>();
+        foreach (var item in resultTxt)
+        {
+            foreach (var element in propertyValues)
+            {
+                if (element.Contains(item))
+                {
+                    final.Add(element);
+                }
+            }
+        }
+        final = final.Distinct().ToList();
+        foreach (var item in final)
+        {
+            extractLabel.Text += item + "\n";
+        }
+
     }
 }

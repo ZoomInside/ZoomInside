@@ -16,7 +16,8 @@
                 Margin="15"/>
         <Label x:Name="resultLabel"
                HorizontalOptions="Center"
-               VerticalOptions="Center" />
+               VerticalOptions="Center"
+               Margin="15" />
 
         <Button Text="Camera"
                 Clicked="Button_Clicked"

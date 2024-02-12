@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
 using System;
 using System.Drawing;
+using Mopups.Interfaces;
 
 
 namespace ZoomInside
@@ -14,9 +15,12 @@ namespace ZoomInside
         FirebaseClient firebaseClient = 
             new FirebaseClient("https://zoominside-2ccf3-default-rtdb.europe-west1.firebasedatabase.app/");
 
-        public MainPage()
+        IPopupNavigation popupNavigation;
+        public MainPage(IPopupNavigation popupNavigation)
         {
             InitializeComponent();
+
+            this.popupNavigation = popupNavigation;
         }
         
         private async void GetByKey(object sender, EventArgs e)
@@ -44,6 +48,8 @@ namespace ZoomInside
             {
                 resultLabel.Text += item + "\n";
             }
+                        
+            await popupNavigation.PushAsync(new MyMopup(propertyValues));
         }        
 
         private void Button_Clicked(object sender, EventArgs e)

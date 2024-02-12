@@ -49,6 +49,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="myFiles\**" />
+	  <Compile Remove="myFiles\**" />
+	  <EmbeddedResource Remove="myFiles\**" />
+	  <MauiCss Remove="myFiles\**" />
+	  <MauiXaml Remove="myFiles\**" />
+	  <None Remove="myFiles\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="images\camera.png" />
 	</ItemGroup>
 
@@ -59,6 +68,7 @@
 		<PackageReference Include="FireSharp.Serialization.JsonNet" Version="1.1.0" />
 		<PackageReference Include="LeptonicaSharp" Version="1.77.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Mopups" Version="1.1.0" />
 		<PackageReference Include="Tesseract" Version="5.2.0" />
 	</ItemGroup>
 
@@ -70,10 +80,9 @@
 	  <MauiXaml Update="CameraAccessment.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="myFiles\" />
+	  <MauiXaml Update="MyMopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+             xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
              x:Class="ZoomInside.CameraAccessment"
              Title="CameraAccessment" 
-             Shell.NavBarIsVisible="False">   
+             Shell.NavBarIsVisible="False">
 
-    <ScrollView BackgroundColor="Black">
+    <Grid BackgroundColor="Black">
         <VerticalStackLayout BackgroundColor="Black"
                              VerticalOptions="Center">
 
@@ -23,7 +25,7 @@
                                    Color="White" 
                                    VerticalOptions="End"
                                    Margin="30"/>
-                
+
             </StackLayout>
 
             <Button CornerRadius="100"
@@ -35,15 +37,15 @@
                     BorderWidth="4"
                     Margin="15"
                     Clicked="Button_Clicked_2" />
-            
+
             <Image x:Name="tester" />
 
             <Label x:Name="extractLabel"
                    Margin="15"
                    HorizontalOptions="Center" 
-                   TextColor="White"/>
+                   TextColor="White"/>            
 
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 
 </ContentPage>

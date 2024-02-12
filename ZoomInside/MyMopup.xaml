@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+                  xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+                  CloseWhenBackgroundIsClicked="True"
+                  Background="#80000000"
+                  x:Class="ZoomInside.MyMopup">
+
+    <mopups:PopupPage.Animation>
+        <mopupsanim:ScaleAnimation
+            DurationIn="700"
+            EasingIn="BounceOut"
+            PositionIn="Bottom"
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="0.7" />
+    </mopups:PopupPage.Animation>
+    <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+        <Border WidthRequest="300" HeightRequest="400"
+                BackgroundColor="White"
+                HorizontalOptions="Center">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="40,0,0,40"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="3">
+                <Label x:Name="resultLabel"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="20" />
+            </VerticalStackLayout>
+        </Border>
+
+    </ScrollView>
+
+</mopups:PopupPage>
