@@ -27,6 +27,7 @@ namespace ZoomInside
 
             builder.Services.AddSingleton<IPopupNavigation>(MopupService.Instance);
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<CameraAccessment>();
 
             return builder.Build();
         }

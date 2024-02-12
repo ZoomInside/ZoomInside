@@ -24,8 +24,9 @@ public partial class CameraAccessment : ContentPage
     }
     public double ScreenWidth { get; set; }
 
-    
-    public CameraAccessment()
+
+    IPopupNavigation popupNavigation;
+    public CameraAccessment(IPopupNavigation popupNavigation)
 	{
 		InitializeComponent();
 
@@ -35,6 +36,7 @@ public partial class CameraAccessment : ContentPage
         // Set the binding context to the current instance of the page (this)
         this.BindingContext = this;
 
+        this.popupNavigation = popupNavigation;
     }
     
     private void cameraView_CamerasLoaded(object sender, EventArgs e)
@@ -124,16 +126,19 @@ public partial class CameraAccessment : ContentPage
 
             foreach (var item in resultTxt)
             {
-                if (item.Contains(auxiliaryVar))
+                if (item == auxiliaryVar)
                 {
                     final.Add(propertyValues[i]);
+                    break;
                 }
             }
         }
 
-        foreach (var item in final)
+        /*foreach (var item in final)
         {
             extractLabel.Text += item + "\n";
-        }
+        }*/
+
+        await popupNavigation.PushAsync(new MyMopup(final));
     }
 }

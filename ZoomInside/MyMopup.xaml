@@ -9,7 +9,7 @@
 
     <mopups:PopupPage.Animation>
         <mopupsanim:ScaleAnimation
-            DurationIn="700"
+            DurationIn="1000"
             EasingIn="BounceOut"
             PositionIn="Bottom"
             PositionOut="Center"
@@ -17,17 +17,20 @@
             ScaleOut="0.7" />
     </mopups:PopupPage.Animation>
     <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
-        <Border WidthRequest="300" HeightRequest="400"
+        <Border WidthRequest="300" HeightRequest="500"
                 BackgroundColor="White"
                 HorizontalOptions="Center">
             <Border.StrokeShape>
-                <RoundRectangle CornerRadius="40,0,0,40"/>
+                <RoundRectangle CornerRadius="10, 10, 10, 10"/>
             </Border.StrokeShape>
             <VerticalStackLayout Spacing="3">
                 <Label x:Name="resultLabel"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       Margin="20" />
+                       Margin="20" 
+                       FontFamily="Comfortaa"
+                       FontSize="20"
+                       TextColor="Black"/>
             </VerticalStackLayout>
         </Border>
 

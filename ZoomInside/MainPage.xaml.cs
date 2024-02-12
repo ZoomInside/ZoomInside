@@ -54,7 +54,7 @@ namespace ZoomInside
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CameraAccessment());
+            Navigation.PushAsync(new CameraAccessment(popupNavigation));
         }
     }
 }
