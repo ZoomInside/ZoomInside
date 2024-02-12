@@ -5,6 +5,7 @@
 
 
     <StackLayout>
+        
         <Entry x:Name="eType"
                Placeholder="Type the E with its number"
                Margin="15" />

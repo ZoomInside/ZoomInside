@@ -112,22 +112,28 @@ public partial class CameraAccessment : ContentPage
             propertyValues[i] = propertyValues[i].ToLower();
         }
 
-        var final = new List<string>();
-        foreach (var item in resultTxt)
+
+        // propertyValues -> данните от файърбейз 
+        // resultTxt -> данните от снимката 
+
+        List<string> final = new List<string>();
+        for (int i = 0; i < propertyValues.Count; i++)
         {
-            foreach (var element in propertyValues)
+            int index = Math.Abs(propertyValues[i].IndexOf(":"));
+            string auxiliaryVar = propertyValues[i].Substring(0, index);
+
+            foreach (var item in resultTxt)
             {
-                if (element.Contains(item))
+                if (item.Contains(auxiliaryVar))
                 {
-                    final.Add(element);
+                    final.Add(propertyValues[i]);
                 }
             }
         }
-        final = final.Distinct().ToList();
+
         foreach (var item in final)
         {
             extractLabel.Text += item + "\n";
         }
-
     }
 }
