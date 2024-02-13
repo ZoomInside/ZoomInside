@@ -1,3 +1,6 @@
+﻿using Mopups.Services;
+using System.Text;
+
 namespace ZoomInside;
 
 public partial class MyMopup
@@ -6,9 +9,21 @@ public partial class MyMopup
 	{
 		InitializeComponent();
 
-		foreach (var item in res)
+		if (res.Count > 0)
 		{
-			resultLabel.Text += item + "\n" + "\n";
+            foreach (var item in res)
+            {
+                resultLabel.Text += item + "\n" + "\n";
+            }
+        }
+		else
+		{
+			resultLabel.Text = "Нещо се обърка!\nМоля, заснемете продукта си отново!";
 		}
 	}
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        MopupService.Instance.PopAsync();
+    }
 }
