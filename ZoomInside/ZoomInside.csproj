@@ -80,6 +80,9 @@
 	  <MauiXaml Update="CameraAccessment.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MediaPickerTests.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MyMopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

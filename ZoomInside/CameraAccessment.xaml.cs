@@ -39,7 +39,7 @@ public partial class CameraAccessment : ContentPage
         this.popupNavigation = popupNavigation;
     }
     
-    private void cameraView_CamerasLoaded(object sender, EventArgs e)
+    /*private void cameraView_CamerasLoaded(object sender, EventArgs e)
     {
         // Get access to the camera of the device
         cameraView.Camera = cameraView.Cameras.First();
@@ -49,12 +49,54 @@ public partial class CameraAccessment : ContentPage
             await cameraView.StopCameraAsync();
             await cameraView.StartCameraAsync();
         });
-    }   
+    }*/  
 
     private async void Button_Clicked_2(object sender, EventArgs e)
     {
         apiManipulation apiManip = new apiManipulation();
 
+        byte[] imageBytes = null;
+        try
+        {
+            var photo = await MediaPicker.CapturePhotoAsync();
+
+            if (photo != null)
+            {
+                // Save the photo to a specific directory
+                var fullPath = apiManip.CreateDirectory();
+
+                var stream = await photo.OpenReadAsync();
+                if (stream != null)
+                {
+                    using (MemoryStream toBytes = new MemoryStream())
+                    {
+                        await stream.CopyToAsync(toBytes);
+                        imageBytes = toBytes.ToArray();
+                    }
+                }
+                testImg.Source = fullPath;
+                await File.WriteAllBytesAsync(fullPath, imageBytes);
+
+                //await DisplayAlert("Success", "Photo saved to: " + fullPath, "OK");
+            }
+        }
+        catch (FeatureNotSupportedException fnsEx)
+        {
+            // Feature not supported on the device
+            await DisplayAlert("Error", fnsEx.Message, "OK");
+        }
+        catch (PermissionException pEx)
+        {
+            // Permissions not granted
+            await DisplayAlert("Error", pEx.Message, "OK");
+        }
+        catch (Exception ex)
+        {
+            // Other errors
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
+
+        /*
         // Creating a directory for the snapshot
         var fullPath = apiManip.CreateDirectory();
 
@@ -62,7 +104,7 @@ public partial class CameraAccessment : ContentPage
         ImageSource imagesource = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
         // Saving the snapshot
         await cameraView.SaveSnapShot(Camera.MAUI.ImageFormat.PNG, fullPath);
-
+        */
 
         // Showing the activity indicator
         activityIndicator.IsRunning = true;
@@ -71,7 +113,7 @@ public partial class CameraAccessment : ContentPage
 
 
         // Turning the image to binary
-        byte[] imageBytes = File.ReadAllBytes(fullPath);
+        //byte[] imageBytes = File.ReadAllBytes(fullPath);
 
         // Accessing the API
         var extractedText = apiManip.TextExtract(imageBytes);
@@ -94,12 +136,6 @@ public partial class CameraAccessment : ContentPage
         {
             resultTxt[i] = resultTxt[i].ToLower();
         }
-
-        /*extractLabel.Text = string.Empty;
-        foreach (var item in resultTxt)
-        {
-            extractLabel.Text += item + " ";
-        }*/
 
         var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
         List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
@@ -133,11 +169,6 @@ public partial class CameraAccessment : ContentPage
                 }
             }
         }
-
-        /*foreach (var item in final)
-        {
-            extractLabel.Text += item + "\n";
-        }*/
 
         await popupNavigation.PushAsync(new MyMopup(final));
     }

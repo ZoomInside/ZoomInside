@@ -13,11 +13,14 @@
                              VerticalOptions="Center">
 
             <StackLayout>
-                <cv:CameraView x:Name="cameraView"
+                
+                <!--<cv:CameraView x:Name="cameraView"
                                WidthRequest="{Binding ScreenWidth}"
                                HeightRequest="{Binding ScreenWidth}"
                                CamerasLoaded="cameraView_CamerasLoaded"
-                               Margin="0, 50, 0, 0"/>
+                               Margin="0, 50, 0, 0" />-->
+
+                <Image x:Name="testImg" />
 
                 <ActivityIndicator x:Name="activityIndicator"
                                    IsRunning="False"
