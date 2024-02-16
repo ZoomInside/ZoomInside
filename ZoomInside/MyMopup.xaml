@@ -33,7 +33,7 @@
                            Margin="20, 40, 20, 0" 
                            FontFamily="Comfortaa"
                            FontSize="23"
-                           TextColor="#B0151B"
+                           TextColor="#1A2123"
                            HorizontalTextAlignment="Center"/>
                     <Button Text="Добре"
                             VerticalOptions="End"

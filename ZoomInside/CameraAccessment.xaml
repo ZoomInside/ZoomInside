@@ -41,16 +41,17 @@
 
             </StackLayout>
 
-            <Button CornerRadius="50"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    WidthRequest="60"
-                    HeightRequest="60"
-                    BorderColor="#1A2123"
-                    BackgroundColor="Transparent"
-                    BorderWidth="4"
-                    Margin="10, 10, 10, 80"
-                    Clicked="Button_Clicked_2" />
+            <ImageButton CornerRadius="50"
+                         Source="images/camera_icon.png"                         
+                         HorizontalOptions="Center"
+                         VerticalOptions="End"
+                         HeightRequest="60"
+                         WidthRequest="60"
+                         BorderColor="#1A2123"
+                         BackgroundColor="Transparent"
+                         BorderWidth="4"
+                         Margin="10, 10, 10, 80"
+                         Clicked="Button_Clicked_2" />
 
             <Image x:Name="tester"/>
 

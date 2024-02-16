@@ -38,18 +38,6 @@ public partial class CameraAccessment : ContentPage
 
         this.popupNavigation = popupNavigation;
     }
-    
-    /*private void cameraView_CamerasLoaded(object sender, EventArgs e)
-    {
-        // Get access to the camera of the device
-        cameraView.Camera = cameraView.Cameras.First();
-
-        MainThread.BeginInvokeOnMainThread(async () =>
-        {
-            await cameraView.StopCameraAsync();
-            await cameraView.StartCameraAsync();
-        });
-    }*/  
 
     private async void Button_Clicked_2(object sender, EventArgs e)
     {
@@ -75,7 +63,7 @@ public partial class CameraAccessment : ContentPage
                         imageBytes = toBytes.ToArray();
                     }
                 }
-                testImg.Source = fullPath;
+                //testImg.Source = fullPath;
                 await File.WriteAllBytesAsync(fullPath, imageBytes);
 
                 //await DisplayAlert("Success", "Photo saved to: " + fullPath, "OK");
@@ -97,24 +85,11 @@ public partial class CameraAccessment : ContentPage
             await DisplayAlert("Error", ex.Message, "OK");
         }
 
-        /*
-        // Creating a directory for the snapshot
-        var fullPath = apiManip.CreateDirectory();
-
-        // Taking the snapshot
-        ImageSource imagesource = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
-        // Saving the snapshot
-        await cameraView.SaveSnapShot(Camera.MAUI.ImageFormat.PNG, fullPath);
-        */
-
         // Showing the activity indicator
         activityIndicator.IsRunning = true;
         activityIndicator.IsVisible = true;
         await LoadDataAsync();
 
-
-        // Turning the image to binary
-        //byte[] imageBytes = File.ReadAllBytes(fullPath);
 
         // Accessing the API
         var extractedText = apiManip.TextExtract(imageBytes);
