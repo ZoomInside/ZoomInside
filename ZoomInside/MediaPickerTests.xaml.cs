@@ -1,59 +1,42 @@
 
+using Firebase.Database;
 using Microsoft.Maui.Storage;
 
 namespace ZoomInside;
 
 public partial class MediaPickerTests : ContentPage
 {
-	public MediaPickerTests()
+    FirebaseClient firebaseClient =
+            new FirebaseClient("https://zoominside-2ccf3-default-rtdb.europe-west1.firebasedatabase.app/");
+    EsItem esItems = new EsItem();
+
+    public MediaPickerTests()
 	{
 		InitializeComponent();
 	}
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        apiManipulation apiManipulation = new apiManipulation();
-        try
+        /*var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
+        List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
+
+        List<string> propertyValues = new List<string>();
+        foreach (var item in dataList)
         {
-            var photo = await MediaPicker.CapturePhotoAsync();
-
-            if (photo != null)
-            {
-                // Save the photo to a specific directory
-                var fullPath = apiManipulation.CreateDirectory();
-
-                var stream = await photo.OpenReadAsync();
-                byte[] bytes = null;
-                if (stream != null)
-                {
-                    using (MemoryStream toBytes = new MemoryStream())
-                    {
-                        await stream.CopyToAsync(toBytes);
-                        bytes = toBytes.ToArray();
-                    }
-                }
-
-                await File.WriteAllBytesAsync(fullPath, bytes);
-
-                testImg.Source = fullPath;
-
-                //await DisplayAlert("Success", "Photo saved to: " + fullPath, "OK");
-            }
+            propertyValues.Add(item.Info);
         }
-        catch (FeatureNotSupportedException fnsEx)
+        for (int i = 0; i < propertyValues.Count; i++)
         {
-            // Feature not supported on the device
-            await DisplayAlert("Error", fnsEx.Message, "OK");
-        }
-        catch (PermissionException pEx)
+            propertyValues[i] = propertyValues[i].ToLower();
+        }*/
+
+        /*var fullText = "Blah blah";
+        var addedItem = await firebaseClient.Child("Es").PostAsync(new EsItem
         {
-            // Permissions not granted
-            await DisplayAlert("Error", pEx.Message, "OK");
-        }
-        catch (Exception ex)
-        {
-            // Other errors
-            await DisplayAlert("Error", ex.Message, "OK");
-        }
+            Info = fullText,
+        });
+        var newItemKey = addedItem.Key;*/
+
+        resLabel.TextColor = Color.FromHex("#D89000");
     }
 }

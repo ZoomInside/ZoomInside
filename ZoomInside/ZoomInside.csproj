@@ -32,6 +32,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
+		<MauiImage Include="images\admin_icon.png" />
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
@@ -58,7 +59,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="images\camera.png" />
+	  <None Remove="images\admin_icon.png" />
+	  <None Remove="images\camera_icon.png" />
+	  <None Remove="images\info_icon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="images\camera_icon.png" />
+	  <MauiImage Include="images\info_icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -73,10 +81,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Include="images\camera.png" />
-	</ItemGroup>
-
-	<ItemGroup>
+	  <MauiXaml Update="AdminAuthentication.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CameraAccessment.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

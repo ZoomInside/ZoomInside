@@ -20,7 +20,7 @@
                  VerticalOptions="End">
         <Border WidthRequest="390" HeightRequest="650"
                 HorizontalOptions="Center"     
-                BackgroundColor="#F0F3FF">
+                BackgroundColor="#faf0dd">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="20" />
             </Border.StrokeShape>

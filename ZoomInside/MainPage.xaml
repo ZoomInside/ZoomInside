@@ -1,30 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ZoomInside.MainPage">
+             x:Class="ZoomInside.MainPage" 
+             Title="Firebase Accessment"  BackgroundColor="#faf0dd">
 
 
-    <StackLayout>
-        
-        <Entry x:Name="eType"
-               Placeholder="Type the E with its number"
-               Margin="15" />
-        <Entry x:Name="explanationEntry"
-               Placeholder="Type your key" 
-               Margin="15"/>
-        <Button Text="Get the value you want"
-                Clicked="GetByKey"
-                Margin="15"/>
-        <Label x:Name="resultLabel"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               Margin="15" />
+    <ScrollView  VerticalOptions="Center"
+                 BackgroundColor="#faf0dd">
 
-        <Button Text="Camera"
-                Clicked="Button_Clicked"
-                Margin="15" />
+        <VerticalStackLayout>
+            
+            <Label Text="Access Firebase and add data"
+                   FontAttributes="Bold"
+                   TextColor="#1A2123"
+                   FontSize="50"
+                   FontFamily="Comfortaa"
+                   HorizontalOptions="Center"
+                   Margin="40" />
 
-    </StackLayout>
+            <Entry x:Name="eType"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="350"
+                   Placeholder="Enter the substance"
+                   Margin="15" 
+                   Completed="eType_Completed"/>
+            <Entry x:Name="explanationEntry"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="350"
+                   Placeholder="Enter the definition" 
+                   Margin="15"
+                   Completed="explanationEntry_Completed"/>
 
+            <HorizontalStackLayout>
+                <Button x:Name="dataButton"
+                        Text="Add value"
+                        FontFamily="Comfortaa"
+                        BackgroundColor="#3C6B78"
+                        CornerRadius="20"
+                        Clicked="AddValue"
+                        Margin="15"/>
 
+                <Button Text="Go to the main page"
+                        FontFamily="Comfortaa"
+                        BackgroundColor="#3C6B78"
+                        CornerRadius="20"
+                        Clicked="Button_Clicked"
+                        Margin="15" />
+            </HorizontalStackLayout>
+            
+            <!--Going to a page where you can search for data exsistment-->
+            
+        </VerticalStackLayout>
+
+    </ScrollView>
+    
 </ContentPage>

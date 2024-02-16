@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZoomInside.AdminAuthentication"
+             Title="Admin Authentication" BackgroundColor="#faf0dd">
+
+    <VerticalStackLayout BackgroundColor="#faf0dd"
+                         VerticalOptions="Center">
+
+        <Label Text="Admin authentication"
+               FontAttributes="Bold"
+               TextColor="#1A2123"
+               FontSize="50"
+               FontFamily="Comfortaa"
+               HorizontalOptions="Center"
+               Margin="40" />
+        
+        <Entry x:Name="usernameEntry"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               WidthRequest="350"
+               Placeholder="Enter username" 
+               Completed='usernameEntry_Completed'
+               Margin="20" />
+
+        <Entry x:Name="passwordEntry"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               WidthRequest="350"
+               Placeholder="Enter password"
+               Completed="passwordEntry_Completed"
+               Margin="20" />
+
+        <Button x:Name="loginButton"
+                Text="LogIn"
+                FontAttributes="Bold"
+                BackgroundColor="#3C6B78"
+                FontFamily="Comfortaa"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="200"
+                Margin="30"
+                CornerRadius="20"
+                Clicked="Button_Clicked" />
+
+    </VerticalStackLayout>
+    
+</ContentPage>

@@ -11,10 +11,13 @@
                 Text="Go to the camera"
                 Clicked="Button_Clicked" />
 
-        <Image x:Name="testImg" 
+        <Label x:Name="resLabel"
+               Text="TEST"
+               FontSize="30"
                HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        
+               VerticalOptions="Center"
+               FontFamily="Comfortaa" />
+
     </StackLayout>   
 
 </ContentPage>

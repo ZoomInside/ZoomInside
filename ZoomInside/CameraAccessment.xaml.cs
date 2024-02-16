@@ -58,6 +58,7 @@ public partial class CameraAccessment : ContentPage
         byte[] imageBytes = null;
         try
         {
+            // Using MediaPicker to interact with the device camera
             var photo = await MediaPicker.CapturePhotoAsync();
 
             if (photo != null)
@@ -171,5 +172,10 @@ public partial class CameraAccessment : ContentPage
         }
 
         await popupNavigation.PushAsync(new MyMopup(final));
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AdminAuthentication());
     }
 }

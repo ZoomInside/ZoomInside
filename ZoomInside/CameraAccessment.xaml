@@ -8,47 +8,96 @@
              Title="CameraAccessment" 
              Shell.NavBarIsVisible="False">
 
-    <Grid BackgroundColor="Black">
-        <VerticalStackLayout BackgroundColor="Black"
+    <Grid BackgroundColor="#FAF0DD">
+        <VerticalStackLayout BackgroundColor="#FAF0DD"
                              VerticalOptions="Center">
 
             <StackLayout>
-                
-                <!--<cv:CameraView x:Name="cameraView"
-                               WidthRequest="{Binding ScreenWidth}"
-                               HeightRequest="{Binding ScreenWidth}"
-                               CamerasLoaded="cameraView_CamerasLoaded"
-                               Margin="0, 50, 0, 0" />-->
+                <Image Source="images/info_icon.png"
+                       HorizontalOptions="Center"
+                       Margin="5" />
 
-                <Image x:Name="testImg" />
+                <Label Text="Изследвайте вътрешния свят на продуктите с ZoomInside. Приложението ни ще ви предостави възможност да водите един по-здравословен начин на живот. С бутона по-долу ще имате възможност да направите снимка съдържанието на продукт, в който се съмнявате и да получите подробна информация за всяка съставка, която би могла да има негативни последици за здравето ви."
+                       TextColor="#1A2123"
+                       FontSize="18"
+                       FontFamily="Comfortaa"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       Margin="20, -10, 20, -20" />
+            </StackLayout>
+
+            <StackLayout>
+                
+                <Image x:Name="testImg" 
+                       Margin="15" />
 
                 <ActivityIndicator x:Name="activityIndicator"
                                    IsRunning="False"
                                    IsVisible="False"
-                                   Color="White" 
+                                   Color="#1A2123" 
                                    VerticalOptions="End"
                                    Margin="30"/>
 
             </StackLayout>
 
-            <Button CornerRadius="100"
+            <Button CornerRadius="50"
                     HorizontalOptions="Center"
+                    VerticalOptions="End"
                     WidthRequest="60"
                     HeightRequest="60"
-                    BorderColor="White"
+                    BorderColor="#1A2123"
                     BackgroundColor="Transparent"
                     BorderWidth="4"
-                    Margin="15"
+                    Margin="10, 10, 10, 80"
                     Clicked="Button_Clicked_2" />
 
-            <Image x:Name="tester" />
+            <Image x:Name="tester"/>
 
             <Label x:Name="extractLabel"
                    Margin="15"
                    HorizontalOptions="Center" 
-                   TextColor="White"/>            
+                   TextColor="White"/>
+
+            <StackLayout VerticalOptions="End">
+                
+            </StackLayout>
+            
 
         </VerticalStackLayout>
+        
+        <StackLayout VerticalOptions="End"
+                     HorizontalOptions="Center">
+            
+            <Border WidthRequest="250"
+                    HeightRequest="80"
+                    Margin="35"
+                    BackgroundColor="#EE1A2123" >
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="50"/>
+                </Border.StrokeShape>
+
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Button Text="Home"
+                            BackgroundColor="#3C6B78"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Bold"
+                            Margin="18, 15"                         
+                            CornerRadius="50" />
+                    <Button Text="Admin"
+                            BackgroundColor="#3C6B78"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Bold"
+                            Margin="18, 15"
+                            CornerRadius="50" 
+                            Clicked="Button_Clicked"/>
+
+                </HorizontalStackLayout>
+
+            </Border>
+        </StackLayout>
+        
     </Grid>
 
 </ContentPage>
