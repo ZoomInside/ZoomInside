@@ -32,8 +32,15 @@
                    Placeholder="Enter the definition" 
                    Margin="15"
                    Completed="explanationEntry_Completed"/>
+            <Entry x:Name="dangerScaleEntry"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="350"
+                   Placeholder="Enter the danger (1 to 3) of the ingredient" 
+                   Margin="15"
+                   Completed="dangerScaleEntry_Completed"/>
 
-            <HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
                 <Button x:Name="dataButton"
                         Text="Add value"
                         FontFamily="Comfortaa"

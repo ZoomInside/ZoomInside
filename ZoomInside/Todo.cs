@@ -10,7 +10,7 @@ namespace ZoomInside
     public class EsItem
     {
         public string Info { get; set; }
-        //public int DangerScale { get; set; }
+        public string DangerScale { get; set; }
     }
     public class TodoItem
     {

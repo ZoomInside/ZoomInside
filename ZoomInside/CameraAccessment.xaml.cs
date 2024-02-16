@@ -7,9 +7,6 @@ using System.Text.RegularExpressions;
 using Firebase.Database;
 using Mopups.Services;
 using Mopups.Interfaces;
-//using Mopups.Services;
-//using Mopups.Interfaces;
-//using MauiMopupsSample;
 
 namespace ZoomInside;
 
@@ -68,6 +65,10 @@ public partial class CameraAccessment : ContentPage
 
                 //await DisplayAlert("Success", "Photo saved to: " + fullPath, "OK");
             }
+            else
+            {
+                return;
+            }
         }
         catch (FeatureNotSupportedException fnsEx)
         {
@@ -85,11 +86,11 @@ public partial class CameraAccessment : ContentPage
             await DisplayAlert("Error", ex.Message, "OK");
         }
 
+
         // Showing the activity indicator
         activityIndicator.IsRunning = true;
         activityIndicator.IsVisible = true;
         await LoadDataAsync();
-
 
         // Accessing the API
         var extractedText = apiManip.TextExtract(imageBytes);
@@ -114,36 +115,38 @@ public partial class CameraAccessment : ContentPage
         }
 
         var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
-        List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
+        List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();        
 
-        List<string> propertyValues = new List<string>();
+
+        List<List<string>> propertyValues = new List<List<string>>(); var count_1 = 0;
         foreach (var item in dataList)
         {
-            propertyValues.Add(item.Info);
-        }
-        for (int i = 0; i < propertyValues.Count; i++)
-        {
-            propertyValues[i] = propertyValues[i].ToLower();
+            propertyValues.Add(new List<string>());
+            propertyValues[count_1].Add(item.Info.ToLower());
+            propertyValues[count_1].Add(item.DangerScale);
+            count_1++;
         }
 
 
         // propertyValues -> данните от файърбейз 
         // resultTxt -> данните от снимката 
 
-        List<string> final = new List<string>();
-        for (int i = 0; i < propertyValues.Count; i++)
+        List<List<string>> final = new List<List<string>>(); var count_2 = 0;
+        foreach (var subList in propertyValues)
         {
-            int index = Math.Abs(propertyValues[i].IndexOf(":"));
-            string auxiliaryVar = propertyValues[i].Substring(0, index);
+            var index = subList[0].IndexOf(':');
+            var auxiliaryVar = subList[0].Substring(0, index);
 
             foreach (var item in resultTxt)
             {
                 if (item == auxiliaryVar)
                 {
-                    final.Add(propertyValues[i]);
-                    break;
+                    final.Add(new List<string>());
+                    final[count_2].Add(subList[0]);
+                    final[count_2].Add(subList[1]);
+                    count_2++;
                 }
-            }
+            }            
         }
 
         await popupNavigation.PushAsync(new MyMopup(final));

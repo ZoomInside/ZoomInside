@@ -28,14 +28,16 @@ namespace ZoomInside
             if (eType.Text != null || explanationEntry.Text != null)
             {
                 var fullText = eType.Text + ": " + explanationEntry.Text;
+                var dangerScale = dangerScaleEntry.Text;
                 var a = await firebaseClient.Child("Es").PostAsync(new EsItem
                 {
                     Info = fullText,
+                    DangerScale = dangerScale,
                 });
-                var itemKey = a.Key;
 
                 eType.Text = string.Empty;
                 explanationEntry.Text = string.Empty;
+                dangerScaleEntry.Text = string.Empty;
 
                 var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
                 List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
@@ -49,7 +51,7 @@ namespace ZoomInside
             else
             {
                 await DisplayAlert("Error!", "Please fill in all required data", "OK");
-            }            
+            }           
             
             //await popupNavigation.PushAsync(new MyMopup(propertyValues));
         }        
@@ -65,6 +67,11 @@ namespace ZoomInside
         }
 
         private void explanationEntry_Completed(object sender, EventArgs e)
+        {
+            dangerScaleEntry.Focus();
+        }
+
+        private void dangerScaleEntry_Completed(object sender, EventArgs e)
         {
             dataButton.Focus();
         }

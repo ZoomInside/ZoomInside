@@ -16,8 +16,8 @@ public partial class MediaPickerTests : ContentPage
 	}
 
     private async void Button_Clicked(object sender, EventArgs e)
-    {
-        /*var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
+    {/*
+        var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
         List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
 
         List<string> propertyValues = new List<string>();
@@ -28,15 +28,14 @@ public partial class MediaPickerTests : ContentPage
         for (int i = 0; i < propertyValues.Count; i++)
         {
             propertyValues[i] = propertyValues[i].ToLower();
-        }*/
+        }
 
-        /*var fullText = "Blah blah";
+        var fullText = "Blah blah";
         var addedItem = await firebaseClient.Child("Es").PostAsync(new EsItem
         {
             Info = fullText,
         });
-        var newItemKey = addedItem.Key;*/
-
-        resLabel.TextColor = Color.FromHex("#D89000");
+        
+        var addedItem = */
     }
 }

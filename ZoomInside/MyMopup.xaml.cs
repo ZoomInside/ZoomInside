@@ -5,20 +5,32 @@ namespace ZoomInside;
 
 public partial class MyMopup
 {
-	public MyMopup(List<string> res)
+	public MyMopup(List<List<string>> res)
 	{
 		InitializeComponent();
 
 		if (res.Count > 0)
 		{
-            foreach (var item in res)
+            foreach (var sublist in res)
             {
-                resultLabel.Text += item + "\n" + "\n";
+				if (sublist[1] == "3")
+				{
+                    thirdLabel.Text += sublist[0] + "\n\n";
+                }
+                else if (sublist[1] == "2")
+                {
+                    secondLabel.Text += sublist[0] + "\n\n";
+                }
+                else
+                {
+                    firstLabel.Text += sublist[0] + "\n\n";
+                }
             }
         }
 		else
 		{
-			resultLabel.Text = "Нещо се обърка!\nМоля, заснемете продукта си отново!";
+            thirdLabel.TextColor = Color.FromHex("#1A2123");
+			thirdLabel.Text = "В продукта няма нищо притеснително.";
 		}
 	}
 

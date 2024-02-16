@@ -27,19 +27,40 @@
 
             <ScrollView>
                 <VerticalStackLayout Spacing="3">
-                    <Label x:Name="resultLabel"
+                    <Label x:Name="thirdLabel"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            Margin="20, 40, 20, 0" 
                            FontFamily="Comfortaa"
                            FontSize="23"
-                           TextColor="#1A2123"
+                           TextColor="#A0181D"
+                           FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
+                    <Label x:Name="secondLabel"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="20, 0, 20, 0" 
+                           FontFamily="Comfortaa"
+                           FontSize="23"
+                           TextColor="#D89000"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Label x:Name="firstLabel"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="20, 0, 20, 0" 
+                           FontFamily="Comfortaa"
+                           FontSize="23"
+                           TextColor="#6F8C20"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    
                     <Button Text="Добре"
                             VerticalOptions="End"
                             HorizontalOptions="Center"
                             Background="#C9D7DD"
-                            TextColor="#12372A"
+                            TextColor="#1A2123"
+                            FontAttributes="Bold"
                             FontFamily="Comfortaa"
                             FontSize="17"
                             Margin="15, 0, 15, 50"
