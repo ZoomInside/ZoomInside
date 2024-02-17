@@ -4,45 +4,80 @@
              x:Class="ZoomInside.AdminAuthentication"
              Title="Admin Authentication" BackgroundColor="#faf0dd">
 
-    <VerticalStackLayout BackgroundColor="#faf0dd"
-                         VerticalOptions="Center">
+    <Grid BackgroundColor="#faf0dd">
 
-        <Label Text="Admin authentication"
-               FontAttributes="Bold"
-               TextColor="#1A2123"
-               FontSize="50"
-               FontFamily="Comfortaa"
-               HorizontalOptions="Center"
-               Margin="40" />
+        <VerticalStackLayout VerticalOptions="Center">
+
+            <Label Text="Admin authentication"
+                   FontAttributes="Bold"
+                   TextColor="#1A2123"
+                   FontSize="50"
+                   FontFamily="Comfortaa"
+                   HorizontalOptions="Center"
+                   Margin="40" />
+
+            <Entry x:Name="usernameEntry"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="350"
+                   Placeholder="Enter username" 
+                   Completed='usernameEntry_Completed'
+                   Margin="20" />
+
+            <Entry x:Name="passwordEntry"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   WidthRequest="350"
+                   Placeholder="Enter password"
+                   Completed="passwordEntry_Completed"
+                   Margin="20" />
+
+            <Button x:Name="loginButton"
+                    Text="LogIn"
+                    FontAttributes="Bold"
+                    BackgroundColor="#3C6B78"
+                    FontFamily="Comfortaa"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="200"
+                    Margin="30"
+                    CornerRadius="20"
+                    Clicked="Button_Clicked" />
+
+        </VerticalStackLayout>
+
+        <StackLayout VerticalOptions="End">
+
+            <Border WidthRequest="250"
+                    HeightRequest="80"
+                    Margin="35"
+                    BackgroundColor="#EE1A2123" >
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="50"/>
+                </Border.StrokeShape>
+
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Button Text="Home"
+                            BackgroundColor="#3C6B78"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Bold"
+                            Margin="18, 15"                         
+                            CornerRadius="50" 
+                            Clicked="Button_Clicked_1" />
+                    <Button Text="Admin"
+                            BackgroundColor="#3C6B78"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Bold"
+                            Margin="18, 15"
+                            CornerRadius="50" />
+
+                </HorizontalStackLayout>
+
+            </Border>
+            
+        </StackLayout>
         
-        <Entry x:Name="usernameEntry"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               WidthRequest="350"
-               Placeholder="Enter username" 
-               Completed='usernameEntry_Completed'
-               Margin="20" />
-
-        <Entry x:Name="passwordEntry"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               WidthRequest="350"
-               Placeholder="Enter password"
-               Completed="passwordEntry_Completed"
-               Margin="20" />
-
-        <Button x:Name="loginButton"
-                Text="LogIn"
-                FontAttributes="Bold"
-                BackgroundColor="#3C6B78"
-                FontFamily="Comfortaa"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                WidthRequest="200"
-                Margin="30"
-                CornerRadius="20"
-                Clicked="Button_Clicked" />
-
-    </VerticalStackLayout>
+    </Grid>
     
 </ContentPage>

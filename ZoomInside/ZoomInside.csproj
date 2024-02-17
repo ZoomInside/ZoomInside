@@ -32,11 +32,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiImage Include="images\admin_icon.png" />
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-
+		
+		<MauiIcon Include="Resources\AppIcon\zoom_logo.png" Color="White" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\zoom_splash.png" Color="White" BaseSize="400, 400" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -62,6 +61,11 @@
 	  <None Remove="images\admin_icon.png" />
 	  <None Remove="images\camera_icon.png" />
 	  <None Remove="images\info_icon.png" />
+	  <None Remove="Resources\AppIcon\zoom_logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiIcon Include="Resources\AppIcon\zoom_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>

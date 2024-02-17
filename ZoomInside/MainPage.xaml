@@ -5,10 +5,9 @@
              Title="Firebase Accessment"  BackgroundColor="#faf0dd">
 
 
-    <ScrollView  VerticalOptions="Center"
-                 BackgroundColor="#faf0dd">
+    <Grid BackgroundColor="#faf0dd">
 
-        <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center">
             
             <Label Text="Access Firebase and add data"
                    FontAttributes="Bold"
@@ -40,27 +39,49 @@
                    Margin="15"
                    Completed="dangerScaleEntry_Completed"/>
 
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Button x:Name="dataButton"
-                        Text="Add value"
-                        FontFamily="Comfortaa"
-                        BackgroundColor="#3C6B78"
-                        CornerRadius="20"
-                        Clicked="AddValue"
-                        Margin="15"/>
+            <Button x:Name="dataButton"
+                    Text="Add value"
+                    FontFamily="Comfortaa"
+                    BackgroundColor="#3C6B78"
+                    CornerRadius="20"
+                    Clicked="AddValue"
+                    Margin="15"
+                    HorizontalOptions="Center" />           
 
-                <Button Text="Go to the main page"
-                        FontFamily="Comfortaa"
-                        BackgroundColor="#3C6B78"
-                        CornerRadius="20"
-                        Clicked="Button_Clicked"
-                        Margin="15" />
-            </HorizontalStackLayout>
-            
             <!--Going to a page where you can search for data exsistment-->
             
         </VerticalStackLayout>
 
-    </ScrollView>
+        <StackLayout VerticalOptions="End">
+            <Border WidthRequest="250"
+                    HeightRequest="80"
+                    Margin="35"
+                    BackgroundColor="#EE1A2123" >
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="50"/>
+                </Border.StrokeShape>
+
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Button Text="Home"
+                            BackgroundColor="#3C6B78"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Bold"
+                            Margin="18, 15"                         
+                            CornerRadius="50" 
+                            Clicked="Button_Clicked" />
+                    <Button Text="Admin"
+                            BackgroundColor="#3C6B78"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Bold"
+                            Margin="18, 15"
+                            CornerRadius="50" />
+                </HorizontalStackLayout>
+
+            </Border>
+            
+        </StackLayout>
+
+    </Grid>
     
 </ContentPage>

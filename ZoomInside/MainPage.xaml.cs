@@ -25,34 +25,43 @@ namespace ZoomInside
         
         private async void AddValue(object sender, EventArgs e)
         {
-            if (eType.Text != null || explanationEntry.Text != null)
-            {
-                var fullText = eType.Text + ": " + explanationEntry.Text;
-                var dangerScale = dangerScaleEntry.Text;
-                var a = await firebaseClient.Child("Es").PostAsync(new EsItem
-                {
-                    Info = fullText,
-                    DangerScale = dangerScale,
-                });
-
-                eType.Text = string.Empty;
-                explanationEntry.Text = string.Empty;
-                dangerScaleEntry.Text = string.Empty;
-
-                var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
-                List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
-
-                List<string> propertyValues = new List<string>();
-                foreach (var item in dataList)
-                {
-                    propertyValues.Add(item.Info);
-                }
-            }
-            else
+            if (eType.Text == null)
             {
                 await DisplayAlert("Error!", "Please fill in all required data", "OK");
-            }           
-            
+                return;
+            }
+            if (explanationEntry.Text == null)
+            {
+                await DisplayAlert("Error!", "Please fill in all required data", "OK");
+                return;
+            }
+            if (dangerScaleEntry.Text == null)
+            {
+                await DisplayAlert("Error!", "Please fill in all required data", "OK");
+                return;
+            }
+
+            var fullText = eType.Text + ": " + explanationEntry.Text;
+            var dangerScale = dangerScaleEntry.Text;
+            var a = await firebaseClient.Child("Es").PostAsync(new EsItem
+            {
+                Info = fullText,
+                DangerScale = dangerScale,
+            });
+
+            eType.Text = string.Empty;
+            explanationEntry.Text = string.Empty;
+            dangerScaleEntry.Text = string.Empty;
+
+            var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
+            List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
+
+            List<string> propertyValues = new List<string>();
+            foreach (var item in dataList)
+            {
+                propertyValues.Add(item.Info);
+            }
+
             //await popupNavigation.PushAsync(new MyMopup(propertyValues));
         }        
 
