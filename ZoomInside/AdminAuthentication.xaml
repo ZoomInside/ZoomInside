@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZoomInside.AdminAuthentication"
-             Title="Admin Authentication" BackgroundColor="#faf0dd">
+             Title="Удостоверяване на администратор" BackgroundColor="#faf0dd">
 
     <Grid BackgroundColor="#faf0dd">
 
         <VerticalStackLayout VerticalOptions="Center">
 
-            <Label Text="Admin authentication"
+            <Label Text="Удостоверяване на администратор"
                    FontAttributes="Bold"
                    TextColor="#1A2123"
                    FontSize="50"
@@ -23,13 +23,14 @@
                    Placeholder="Enter username" 
                    Completed='usernameEntry_Completed'
                    Margin="20" />
-
+            
             <Entry x:Name="passwordEntry"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
                    Placeholder="Enter password"
                    Completed="passwordEntry_Completed"
+                   IsPassword="True"
                    Margin="20" />
 
             <Button x:Name="loginButton"
@@ -58,14 +59,14 @@
                 </Border.StrokeShape>
 
                 <HorizontalStackLayout HorizontalOptions="Center">
-                    <Button Text="Home"
+                    <Button Text="Начало"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
                             Margin="18, 15"                         
                             CornerRadius="50" 
                             Clicked="Button_Clicked_1" />
-                    <Button Text="Admin"
+                    <Button Text="Админ"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"

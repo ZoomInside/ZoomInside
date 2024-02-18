@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZoomInside.MainPage" 
-             Title="Firebase Accessment"  BackgroundColor="#faf0dd">
+             Title="Достъп до Firebase"  BackgroundColor="#faf0dd">
 
 
     <Grid BackgroundColor="#faf0dd">
 
         <VerticalStackLayout VerticalOptions="Center">
-            
-            <Label Text="Access Firebase and add data"
+
+            <Label Text="Достъп до Firebase и добавяне на данни"
                    FontAttributes="Bold"
                    TextColor="#1A2123"
                    FontSize="50"
@@ -21,21 +21,21 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
-                   Placeholder="Enter the substance"
+                   Placeholder="Въведете веществото"
                    Margin="15" 
                    Completed="eType_Completed"/>
             <Entry x:Name="explanationEntry"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
-                   Placeholder="Enter the definition" 
+                   Placeholder="Въведете определението" 
                    Margin="15"
                    Completed="explanationEntry_Completed"/>
             <Entry x:Name="dangerScaleEntry"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
-                   Placeholder="Enter the danger (1 to 3) of the ingredient" 
+                   Placeholder="Въведете нивото на опасност (от 1 до 3) на съставката" 
                    Margin="15"
                    Completed="dangerScaleEntry_Completed"/>
 
@@ -55,7 +55,7 @@
         <StackLayout VerticalOptions="End">
             <Border WidthRequest="250"
                     HeightRequest="80"
-                    Margin="35"
+                    Margin="0, 120, 0, 35"
                     BackgroundColor="#EE1A2123" >
 
                 <Border.StrokeShape>
@@ -63,14 +63,14 @@
                 </Border.StrokeShape>
 
                 <HorizontalStackLayout HorizontalOptions="Center">
-                    <Button Text="Home"
+                    <Button Text="Начало"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
                             Margin="18, 15"                         
                             CornerRadius="50" 
                             Clicked="Button_Clicked" />
-                    <Button Text="Admin"
+                    <Button Text="Админ"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"

@@ -74,13 +74,13 @@
                 </Border.StrokeShape>
 
                 <HorizontalStackLayout HorizontalOptions="Center">
-                    <Button Text="Home"
+                    <Button Text="Начало"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
                             Margin="18, 15"                         
                             CornerRadius="50" />
-                    <Button Text="Admin"
+                    <Button Text="Админ"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
