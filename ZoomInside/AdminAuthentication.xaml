@@ -11,7 +11,7 @@
             <Label Text="Удостоверяване на администратор"
                    FontAttributes="Bold"
                    TextColor="#1A2123"
-                   FontSize="50"
+                   FontSize="35"
                    FontFamily="Comfortaa"
                    HorizontalOptions="Center"
                    Margin="40" />

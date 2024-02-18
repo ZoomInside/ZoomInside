@@ -1,4 +1,4 @@
-using Mopups.Interfaces;
+﻿using Mopups.Interfaces;
 
 namespace ZoomInside;
 
@@ -16,7 +16,7 @@ public partial class AdminAuthentication : ContentPage
 
         if ((username == null && password == null) || (username == null || password == null))
         {
-            await DisplayAlert("Error!", "Please fill in all required data", "OK");
+            await DisplayAlert("Грешка!", "Моля, попълнете задължителните полета!", "Добре!");
         }
         else if (username.Trim() == "admin123" && password.Trim() == "ZoomKY123")
         {
@@ -24,7 +24,7 @@ public partial class AdminAuthentication : ContentPage
         }
         else
 		{
-            await DisplayAlert("Error!", "The username or the password was incorrect.", "OK");
+            await DisplayAlert("Грешка!", "Неправилно въведени данни!", "Добре!");
         }
     }
 

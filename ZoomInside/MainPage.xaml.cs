@@ -27,17 +27,17 @@ namespace ZoomInside
         {
             if (eType.Text == null)
             {
-                await DisplayAlert("Error!", "Please fill in all required data", "OK");
+                await DisplayAlert("Грешка!", "Моля, попълнете задължителните полета!", "Добре!");
                 return;
             }
             if (explanationEntry.Text == null)
             {
-                await DisplayAlert("Error!", "Please fill in all required data", "OK");
+                await DisplayAlert("Error!", "Моля, попълнете задължителните полета!", "Добре!");
                 return;
             }
             if (dangerScaleEntry.Text == null)
             {
-                await DisplayAlert("Error!", "Please fill in all required data", "OK");
+                await DisplayAlert("Error!", "Моля, попълнете задължителните полета!", "Добре!");
                 return;
             }
 
