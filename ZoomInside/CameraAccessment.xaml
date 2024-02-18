@@ -18,15 +18,31 @@
                        HorizontalOptions="Center"
                        Margin="5" />
 
-                <Label Text="Изследвайте вътрешния свят на продуктите с ZoomInside. Приложението ни ви предоставя възможност да водите един по-здравословен и информиран начин на живот. С бутона по-долу имате възможност да направите снимка на съдържанието на продукт и да получите подробна информация за всяка съставка, която би могла да има негативни последици за здравето ви."
+                <Label Text="1. Снимай етикета на продукта: Използвай камерата на устройството си, за да заснемеш етикета на продукта, който те интересува. Увери се, че етикетът е четим и добре осветен."
                        TextColor="#1A2123"
                        FontSize="18"
                        FontFamily="Comfortaa"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"
-                       Margin="20, -10, 20, -20" />
-                
+                       Margin="20, -10, 20, 0" />
+                <Label Text="2. Получи информация за съставките: След заснемане, приложението ще ти предостави подробна информация за съставките на продукта. Виж какви са те, какви са техните ефекти и нивото на вредност."
+                       TextColor="#1A2123"
+                       FontSize="18"
+                       FontFamily="Comfortaa"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       Margin="20, 0, 20, -20" />
+                <Label Text="С тези прости стъпки можеш лесно и бързо да използваш приложението ZoomInside и да получиш полезна информация за продуктите, които консумираш."
+                       TextColor="#1A2123"
+                       FontSize="18"
+                       FontFamily="Comfortaa"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       Margin="20, 0, 20, -20" />
+
             </StackLayout>
 
             <StackLayout>

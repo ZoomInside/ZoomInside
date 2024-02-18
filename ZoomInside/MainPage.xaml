@@ -7,7 +7,7 @@
 
     <Grid BackgroundColor="#faf0dd">
 
-        <VerticalStackLayout VerticalOptions="Center">
+        <VerticalStackLayout VerticalOptions="Start" Margin="0, 50">
 
             <Label Text="Достъп до Firebase и добавяне на данни"
                    FontAttributes="Bold"
@@ -40,8 +40,9 @@
                    Completed="dangerScaleEntry_Completed"/>
 
             <Button x:Name="dataButton"
-                    Text="Add value"
+                    Text="Добави стойност"
                     FontFamily="Comfortaa"
+                    FontAttributes="Bold"
                     BackgroundColor="#3C6B78"
                     CornerRadius="20"
                     Clicked="AddValue"
@@ -55,7 +56,7 @@
         <StackLayout VerticalOptions="End">
             <Border WidthRequest="250"
                     HeightRequest="80"
-                    Margin="0, 120, 0, 35"
+                    Margin="35"
                     BackgroundColor="#EE1A2123" >
 
                 <Border.StrokeShape>
