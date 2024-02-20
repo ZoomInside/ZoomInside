@@ -29,15 +29,45 @@
                    VerticalOptions="Center"
                    WidthRequest="350"
                    Placeholder="Въведете определението" 
-                   Margin="15"
-                   Completed="explanationEntry_Completed"/>
-            <Entry x:Name="dangerScaleEntry"
+                   Margin="15" />
+            
+            <!--<Entry x:Name="dangerScaleEntry"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
                    Placeholder="Въведете нивото на опасност (от 1 до 3) на съставката" 
                    Margin="15"
-                   Completed="dangerScaleEntry_Completed"/>
+                   Completed="dangerScaleEntry_Completed"/> -->
+
+            <StackLayout Margin="5">
+                <Label Text="Избери нивото на вредност на веществото: "
+                       FontAttributes="Bold"
+                       TextColor="#1A2123"
+                       FontSize="15"
+                       FontFamily="Comfortaa"
+                       HorizontalOptions="Center" />
+
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <RadioButton x:Name="dangerScale_1"
+                                 Content="1" 
+                                 GroupName="dangerScale"
+                                 CheckedChanged="dangerScale_CheckedChanged"
+                                 Margin="60, 0, 0, 0" />
+                    <RadioButton x:Name="dangerScale_2"
+                                 Content="2" 
+                                 GroupName="dangerScale"
+                                 CheckedChanged="dangerScale_CheckedChanged"
+                                 Margin="60, 0, 60, 0" />
+                    <RadioButton x:Name="dangerScale_3"
+                                 Content="3" 
+                                 GroupName="dangerScale"
+                                 CheckedChanged="dangerScale_CheckedChanged"
+                                 Margin="0, 0, 60, 0" />
+                </HorizontalStackLayout>
+
+            </StackLayout>
+
+
 
             <Button x:Name="dataButton"
                     Text="Добави стойност"

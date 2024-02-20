@@ -22,7 +22,17 @@ namespace ZoomInside
 
             //this.popupNavigation = popupNavigation;
         }
-        
+
+        string dangerScale;
+        private void dangerScale_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+            if (radioButton != null && radioButton.IsChecked == true)
+            {
+                dangerScale = radioButton.Content.ToString();
+            }
+        }
+
         private async void AddValue(object sender, EventArgs e)
         {
             if (eType.Text == null)
@@ -32,37 +42,33 @@ namespace ZoomInside
             }
             if (explanationEntry.Text == null)
             {
-                await DisplayAlert("Error!", "Моля, попълнете задължителните полета!", "Добре!");
+                await DisplayAlert("Грешка!", "Моля, попълнете задължителните полета!", "Добре!");
                 return;
             }
-            if (dangerScaleEntry.Text == null)
+            if (dangerScale_1.IsChecked == false && dangerScale_2.IsChecked == false && dangerScale_3.IsChecked == false)
             {
-                await DisplayAlert("Error!", "Моля, попълнете задължителните полета!", "Добре!");
+                await DisplayAlert("Грешка!", "Моля, попълнете задължителните полета!", "Добре!");
                 return;
             }
 
             var fullText = eType.Text + ": " + explanationEntry.Text;
-            var dangerScale = dangerScaleEntry.Text;
-            var a = await firebaseClient.Child("Es").PostAsync(new EsItem
+
+            try
             {
-                Info = fullText,
-                DangerScale = dangerScale,
-            });
+                var a = await firebaseClient.Child("Es").PostAsync(new EsItem
+                {
+                    Info = fullText,
+                    DangerScale = dangerScale,
+                });
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Грешка!", "Нещо се обърка. Уверете се, че имате установена интернет връзка", "Добре!");
+            }
 
             eType.Text = string.Empty;
             explanationEntry.Text = string.Empty;
-            dangerScaleEntry.Text = string.Empty;
-
-            var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();
-            List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
-
-            List<string> propertyValues = new List<string>();
-            foreach (var item in dataList)
-            {
-                propertyValues.Add(item.Info);
-            }
-
-            //await popupNavigation.PushAsync(new MyMopup(propertyValues));
+            dangerScale_1.IsChecked = false; dangerScale_2.IsChecked = false; dangerScale_3.IsChecked = false;
         }        
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -73,16 +79,6 @@ namespace ZoomInside
         private void eType_Completed(object sender, EventArgs e)
         {
             explanationEntry.Focus();
-        }
-
-        private void explanationEntry_Completed(object sender, EventArgs e)
-        {
-            dangerScaleEntry.Focus();
-        }
-
-        private void dangerScaleEntry_Completed(object sender, EventArgs e)
-        {
-            dataButton.Focus();
-        }
+        }       
     }
 }
