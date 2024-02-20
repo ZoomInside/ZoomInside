@@ -60,7 +60,9 @@
 	<ItemGroup>
 	  <None Remove="images\admin_icon.png" />
 	  <None Remove="images\camera_icon.png" />
+	  <None Remove="images\help_icon.png" />
 	  <None Remove="images\info_icon.png" />
+	  <None Remove="images\search_icon.png" />
 	  <None Remove="Resources\AppIcon\zoom_logo.png" />
 	</ItemGroup>
 
@@ -70,7 +72,9 @@
 
 	<ItemGroup>
 	  <MauiImage Include="images\camera_icon.png" />
+	  <MauiImage Include="images\help_icon.png" />
 	  <MauiImage Include="images\info_icon.png" />
+	  <MauiImage Include="images\search_icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -89,6 +93,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CameraAccessment.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ManualSearch.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MediaPickerTests.xaml">

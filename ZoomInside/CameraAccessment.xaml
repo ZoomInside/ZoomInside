@@ -18,7 +18,7 @@
                        HorizontalOptions="Center"
                        Margin="5" />
 
-                <Label Text="1. Снимай етикета на продукта: Натисни бутона по-долу. Направи снимка. Увери се, че етикетът е четим и добре осветен."
+                <Label Text="1. Натиснете един от двата бутона по-долу. С първия можете да направите снимка на съдържанието на продукт. С втория - да напишете директно веществото, което ви интересува."
                        TextColor="#1A2123"
                        FontSize="18"
                        FontFamily="Comfortaa"
@@ -26,47 +26,41 @@
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"
                        Margin="20, -10, 20, 0" />
-                <Label Text="2. Получи информация за съставките: Приложението ти предоставя информация за съставките на продукта. Виж какви са те, какви са техните ефекти и нивото на вредност."
+                <Label Text="2. Ще намерите информация за съставките в продукта и предупреждение ако продукта може да навреди на здравето ви. Индикаторите за нивото на вредност са цветовете - зелен, жълт и червен."
                        TextColor="#1A2123"
                        FontSize="18"
                        FontFamily="Comfortaa"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"
-                       Margin="20, 0, 20, 0" />
-                <Label Text="С тези прости стъпки можеш лесно и бързо да използваш приложението ZoomInside!"
-                       TextColor="#1A2123"
-                       FontSize="18"
-                       FontFamily="Comfortaa"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center"
-                       Margin="20, 0, 20, -20" />
+                       Margin="20, 0, 10, 0" />
 
             </StackLayout>
 
             <StackLayout>
-                
-                <Image x:Name="testImg" 
-                       Margin="15" />
-
                 <ActivityIndicator x:Name="activityIndicator"
                                    IsRunning="False"
                                    IsVisible="False"
                                    Color="#1A2123" 
                                    VerticalOptions="End"
                                    Margin="30"/>
-
             </StackLayout>
 
-            <ImageButton x:Name="cameraButton"
-                         Source="images/camera_icon.png"             
-                         HorizontalOptions="Center"
-                         VerticalOptions="End"
-                         HeightRequest="70"
-                         WidthRequest="100"
-                         Margin="10, 10, 10, 80"
-                         Clicked="Button_Clicked_2" />            
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End">
+                <ImageButton x:Name="cameraButton"
+                             Source="images/camera_icon.png"                             
+                             HeightRequest="70"
+                             WidthRequest="100"
+                             Margin="20, 10, 10, 80"
+                             Clicked="Button_Clicked_2" />
+
+                <ImageButton x:Name="searchButtoon"
+                             Source="images/search_icon.png"
+                             HeightRequest="70"
+                             WidthRequest="100"
+                             Margin="10, 10, 10, 80"
+                             Clicked="searchButtoon_Clicked" />
+            </HorizontalStackLayout>
 
             <Image x:Name="tester"/>
 
@@ -91,12 +85,15 @@
 
                 <HorizontalStackLayout HorizontalOptions="Center">
                     <Button Text="Начало"
+                            TextColor="#faf0dd"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
-                            Margin="18, 15"                         
+                            Margin="18, 15"
+                            IsVisible="False"
                             CornerRadius="50" />
                     <Button Text="Админ"
+                            TextColor="#faf0dd"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZoomInside.ManualSearch" x:Name="mainScreen"
+             Title="Потърси вещество" BackgroundColor="#faf0dd">
+
+    <Grid>
+        
+        <StackLayout HorizontalOptions="End" VerticalOptions="Start" Margin="15">
+            <ImageButton x:Name="infoButton"
+                         Source="images/help_icon.png"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         Clicked="ImageButton_Clicked" />
+        </StackLayout>
+
+        <StackLayout x:Name="infoBox"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     Margin="40"
+                     IsVisible="False">
+
+            <Border WidthRequest="245"
+                    HeightRequest="130">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <ScrollView>
+                    <VerticalStackLayout Margin="15">
+
+                        <Label Text="При въвеждане на повече от едно вещество се уверете, че те са разделени с интервал, запетая или друг разделителен символ."
+                               FontAttributes="Bold"
+                               TextColor="#1A2123"
+                               FontSize="15"
+                               FontFamily="Comfortaa"/>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+
+            </Border>
+        </StackLayout>
+
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+
+            <Label Text="Потърсете веществето, от което се интересувате."
+                   FontAttributes="Bold"                   
+                   TextColor="#1A2123"
+                   FontSize="40"
+                   FontFamily="Comfortaa"
+                   HorizontalOptions="Center"
+                   Margin="40" />
+
+            <Border WidthRequest="350" HeightRequest="130"
+                    BackgroundColor="#bfbbb2">
+                
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <Border WidthRequest="320" HeightRequest="100"
+                        BackgroundColor="#faf0dd">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    
+                    <Entry x:Name="searchBox"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           WidthRequest="300"
+                           HorizontalTextAlignment="Center"
+                           Placeholder="Потърсете вещество" 
+                           FontSize="25"
+                           FontFamily="Comfortaa"
+                           FontAttributes="Bold" />
+
+                </Border>
+            </Border>
+
+            <StackLayout>
+                <ActivityIndicator x:Name="activityIndicator"
+                                   IsRunning="False"
+                                   IsVisible="False"
+                                   Color="#1A2123" 
+                                   VerticalOptions="End"
+                                   Margin="30"/>
+            </StackLayout>
+
+            <Button Text="Потърси"
+                    Clicked="Button_Clicked" 
+                    TextColor="#faf0dd"
+                    FontAttributes="Bold"
+                    BackgroundColor="#3C6B78"
+                    FontFamily="Comfortaa"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="200"
+                    Margin="30"
+                    CornerRadius="20"/>
+        </StackLayout>
+        
+    </Grid>
+        
+</ContentPage>

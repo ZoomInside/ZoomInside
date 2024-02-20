@@ -35,6 +35,7 @@
 
             <Button x:Name="loginButton"
                     Text="Влизане"
+                    TextColor="#faf0dd"
                     FontAttributes="Bold"
                     BackgroundColor="#3C6B78"
                     FontFamily="Comfortaa"
@@ -65,12 +66,15 @@
                             FontAttributes="Bold"
                             Margin="18, 15"                         
                             CornerRadius="50" 
+                            TextColor="#faf0dd"
                             Clicked="Button_Clicked_1" />
                     <Button Text="Админ"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
                             Margin="18, 15"
+                            TextColor="#faf0dd"
+                            IsVisible="False"
                             CornerRadius="50" />
 
                 </HorizontalStackLayout>

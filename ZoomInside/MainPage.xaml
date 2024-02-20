@@ -41,6 +41,7 @@
 
             <Button x:Name="dataButton"
                     Text="Добави стойност"
+                    TextColor="#faf0dd"
                     FontFamily="Comfortaa"
                     FontAttributes="Bold"
                     BackgroundColor="#3C6B78"
@@ -65,6 +66,7 @@
 
                 <HorizontalStackLayout HorizontalOptions="Center">
                     <Button Text="Начало"
+                            TextColor="#faf0dd"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
@@ -72,11 +74,13 @@
                             CornerRadius="50" 
                             Clicked="Button_Clicked" />
                     <Button Text="Админ"
+                            TextColor="#faf0dd"
                             BackgroundColor="#3C6B78"
                             FontFamily="Comfortaa"
                             FontAttributes="Bold"
                             Margin="18, 15"
-                            CornerRadius="50" />
+                            CornerRadius="50" 
+                            IsVisible="False" />
                 </HorizontalStackLayout>
 
             </Border>

@@ -19,16 +19,12 @@ public partial class CameraAccessment : ContentPage
         // Simulate loading data asynchronously
         await Task.Delay(3000); // Placeholder for actual data loading code
     }
-    public double ScreenWidth { get; set; }
 
 
     IPopupNavigation popupNavigation;
     public CameraAccessment(IPopupNavigation popupNavigation)
 	{
 		InitializeComponent();
-
-        // Get the device's screen width
-        ScreenWidth = Math.Round(DeviceDisplay.MainDisplayInfo.Width / 3);
 
         // Set the binding context to the current instance of the page (this)
         this.BindingContext = this;
@@ -155,5 +151,10 @@ public partial class CameraAccessment : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new AdminAuthentication());
+    }
+
+    private void searchButtoon_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ManualSearch(popupNavigation));
     }
 }
