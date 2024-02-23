@@ -28,7 +28,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
-                   Placeholder="Въведете определението" 
+                   Placeholder="Въведете описанието" 
                    Margin="15" />
             
             <!--<Entry x:Name="dangerScaleEntry"

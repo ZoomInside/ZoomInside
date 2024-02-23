@@ -18,7 +18,7 @@ public partial class AdminAuthentication : ContentPage
         {
             await DisplayAlert("Грешка!", "Моля, попълнете задължителните полета!", "Добре!");
         }
-        else if (username.Trim() == "admin123" && password.Trim() == "ZoomKY123")
+        else if (username.Trim() == "admin123" && password.Trim() == "ZoomKY123" || username.Trim() == "admin" && password.Trim() == "ZoomInside2024")
         {
             await Navigation.PushAsync(new MainPage());
         }

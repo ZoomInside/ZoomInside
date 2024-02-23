@@ -59,6 +59,8 @@ public partial class CameraAccessment : ContentPage
                 //testImg.Source = fullPath;
                 await File.WriteAllBytesAsync(fullPath, imageBytes);
 
+                cameraButton.IsVisible = false;
+                searchButtoon.IsVisible = false;
                 //await DisplayAlert("Success", "Photo saved to: " + fullPath, "OK");
             }
             else
@@ -100,6 +102,9 @@ public partial class CameraAccessment : ContentPage
             // Hide the activity indicator
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;
+
+            cameraButton.IsVisible = true;
+            searchButtoon.IsVisible = true;
 
             char[] splitCharacters = { '{', '}', ' ', ',', '[', ']' };
             List<string> resultTxt = unescapedFormattedText
@@ -145,6 +150,7 @@ public partial class CameraAccessment : ContentPage
                     }
                 }
             }
+
 
             await popupNavigation.PushAsync(new MyMopup(final));
         }
