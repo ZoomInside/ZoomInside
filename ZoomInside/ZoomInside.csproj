@@ -106,4 +106,12 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>key.keystore</AndroidSigningKeyStore>
+		<AndroidSigningStorePass>zoominside</AndroidSigningStorePass>
+		<AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>zoominside</AndroidSigningKeyPass>
+	</PropertyGroup>
+
 </Project>

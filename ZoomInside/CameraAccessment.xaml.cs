@@ -59,9 +59,9 @@ public partial class CameraAccessment : ContentPage
                 //testImg.Source = fullPath;
                 await File.WriteAllBytesAsync(fullPath, imageBytes);
 
+                // Hiding the camera button and the manual search button
                 cameraButton.IsVisible = false;
                 searchButtoon.IsVisible = false;
-                //await DisplayAlert("Success", "Photo saved to: " + fullPath, "OK");
             }
             else
             {
@@ -72,16 +72,19 @@ public partial class CameraAccessment : ContentPage
         {
             // Feature not supported on the device
             await DisplayAlert("Error", fnsEx.Message, "OK");
+            return;
         }
         catch (PermissionException pEx)
         {
             // Permissions not granted
             await DisplayAlert("Error", pEx.Message, "OK");
+            return;
         }
         catch (Exception ex)
         {
             // Other errors
             await DisplayAlert("Error", ex.Message, "OK");
+            return;
         }
 
         try
@@ -99,10 +102,11 @@ public partial class CameraAccessment : ContentPage
             // Removing the escape symbols Visual Studio adds automatically to the unicode we received from the api
             var unescapedFormattedText = Regex.Unescape(formattedText);
 
-            // Hide the activity indicator
+            // Hiding the activity indicator
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;
 
+            // Showing the camera button and the manual search button
             cameraButton.IsVisible = true;
             searchButtoon.IsVisible = true;
 
