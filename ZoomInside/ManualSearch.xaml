@@ -30,7 +30,12 @@
                 <ScrollView>
                     <VerticalStackLayout Margin="15">
 
-                        <Label Text="При въвеждане на повече от едно вещество се уверете, че те са разделени с интервал, запетая или друг разделителен символ."
+                        <Label Text="1. При въвеждане на повече от едно вещество се уверете, че те са разделени със запетая и интервал."
+                               FontAttributes="Bold"
+                               TextColor="#1A2123"
+                               FontSize="15"
+                               FontFamily="Comfortaa"/>
+                        <Label Text="2. При въвеждане на Е-та се уверете, че началното 'Е' е на кирилица"
                                FontAttributes="Bold"
                                TextColor="#1A2123"
                                FontSize="15"
