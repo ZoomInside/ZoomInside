@@ -1,4 +1,4 @@
 # ZoomInside
-'''C#
+```C#
 int a = 48;
-'''
+```
