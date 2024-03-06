@@ -17,6 +17,7 @@
                    Margin="40" />
 
             <Entry x:Name="usernameEntry"
+                   TextColor="#1A2123"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
@@ -25,6 +26,7 @@
                    Margin="20" />
             
             <Entry x:Name="passwordEntry"
+                   TextColor="#1A2123"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"

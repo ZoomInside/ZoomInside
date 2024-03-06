@@ -18,6 +18,7 @@
                    Margin="40" />
 
             <Entry x:Name="eType"
+                   TextColor="#1A2123"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
@@ -25,6 +26,7 @@
                    Margin="15" 
                    Completed="eType_Completed"/>
             <Entry x:Name="explanationEntry"
+                   TextColor="#1A2123"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="350"
@@ -49,16 +51,19 @@
 
                 <HorizontalStackLayout HorizontalOptions="Center">
                     <RadioButton x:Name="dangerScale_1"
+                                 BorderColor="#1A2123"
                                  Content="1" 
                                  GroupName="dangerScale"
                                  CheckedChanged="dangerScale_CheckedChanged"
                                  Margin="60, 0, 0, 0" />
                     <RadioButton x:Name="dangerScale_2"
+                                 BorderColor="#1A2123"
                                  Content="2" 
                                  GroupName="dangerScale"
                                  CheckedChanged="dangerScale_CheckedChanged"
                                  Margin="60, 0, 60, 0" />
                     <RadioButton x:Name="dangerScale_3"
+                                 BorderColor="#1A2123"
                                  Content="3" 
                                  GroupName="dangerScale"
                                  CheckedChanged="dangerScale_CheckedChanged"

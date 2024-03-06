@@ -48,6 +48,9 @@ public partial class ManualSearch : ContentPage
             for (var i = 0; i < resultTxt.Count; i++)
             {
                 resultTxt[i] = resultTxt[i].ToLower();
+
+                if (resultTxt[i][0] == 'e')
+                    resultTxt[i] = resultTxt[i].Replace('e', 'е');
             }
 
             var firebaseObject = await firebaseClient.Child("Es").OnceAsync<EsItem>();

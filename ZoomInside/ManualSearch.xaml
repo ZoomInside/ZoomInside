@@ -21,7 +21,8 @@
                      IsVisible="False">
 
             <Border WidthRequest="245"
-                    HeightRequest="130">
+                    HeightRequest="130"
+                    BackgroundColor="White">
 
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10" />
@@ -35,11 +36,11 @@
                                TextColor="#1A2123"
                                FontSize="15"
                                FontFamily="Comfortaa"/>
-                        <Label Text="2. При въвеждане на Е-та се уверете, че началното 'Е' е на кирилица"
+                        <!--<Label Text="2. При въвеждане на Е-та се уверете, че началното 'Е' е на кирилица"
                                FontAttributes="Bold"
                                TextColor="#1A2123"
                                FontSize="15"
-                               FontFamily="Comfortaa"/>
+                               FontFamily="Comfortaa"/>-->
 
                     </VerticalStackLayout>
                 </ScrollView>
@@ -71,6 +72,7 @@
                     </Border.StrokeShape>
                     
                     <Entry x:Name="searchBox"
+                           TextColor="#1A2123"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="CenterAndExpand"
                            WidthRequest="300"
