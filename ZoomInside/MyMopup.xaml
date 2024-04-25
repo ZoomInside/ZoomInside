@@ -36,6 +36,17 @@
                            TextColor="#A0181D"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
+                   <!-- <Button Text="...more"
+                            HorizontalOptions="End"
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Italic"
+                            FontSize="23"
+                            TextColor="#A0181D"
+                            Opacity="0.5" 
+                            Clicked="Button_Clicked_1" />-->
+
                     <Label x:Name="secondLabel"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
@@ -45,6 +56,17 @@
                            TextColor="#D89000"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
+                    <!--<Button Text="...more"
+                            HorizontalOptions="End"
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Italic"
+                            FontSize="23"
+                            TextColor="#D89000"
+                            Opacity="0.5"
+                            Clicked="Button_Clicked_1" />-->
+                    
                     <Label x:Name="firstLabel"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
@@ -54,7 +76,29 @@
                            TextColor="#6F8C20"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
-                    
+                    <!--<Button Text="...more"
+                            HorizontalOptions="End"
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            FontFamily="Comfortaa"
+                            FontAttributes="Italic"
+                            FontSize="23"
+                            TextColor="#6F8C20"
+                            Opacity="0.5"
+                            Clicked="Button_Clicked_1" />-->
+
+
+                    <Label x:Name="allergensLabel"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="20, 0, 20, 0" 
+                           FontFamily="Comfortaa"
+                           FontSize="23"
+                           TextColor="#A0181D"
+                           FontAttributes="Bold,Italic"
+                           HorizontalTextAlignment="Center"/>
+
+
                     <Button Text="Добре"
                             VerticalOptions="End"
                             HorizontalOptions="Center"
@@ -65,6 +109,7 @@
                             FontSize="17"
                             Margin="15, 0, 15, 50"
                             Clicked="Button_Clicked" />
+
                 </VerticalStackLayout>
             </ScrollView>
         </Border>

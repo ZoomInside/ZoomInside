@@ -12,8 +12,9 @@ namespace ZoomInside
         public string Info { get; set; }
         public string DangerScale { get; set; }
     }
-    public class TodoItem
+    public class Аllergens
     {
-        public string Title { get; set; }
+        public List<string> Allergens { get; set; }
+        public string Message { get; set; }
     }
 }

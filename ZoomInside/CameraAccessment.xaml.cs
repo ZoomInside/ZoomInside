@@ -127,23 +127,21 @@ public partial class CameraAccessment : ContentPage
             List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
 
 
-            //List<List<string>> propertyValues = new List<List<string>>(); var count_1 = 0;
-            Dictionary<string, string> propertyValues = new Dictionary<string, string>();
+            List<List<string>> propertyValues = new List<List<string>>(); var count_1 = 0;
+            //Dictionary<string, string> propertyValues = new Dictionary<string, string>();
             foreach (var item in dataList)
             {
-                propertyValues.Add(item.DangerScale, item.Info);
-
-                /*propertyValues.Add(new List<string>());
+                propertyValues.Add(new List<string>());
                 propertyValues[count_1].Add(item.Info.ToLower());
                 propertyValues[count_1].Add(item.DangerScale);
-                count_1++;*/
+                count_1++;
             }
 
 
             // propertyValues -> данните от файърбейз 
             // resultTxt -> данните от снимката 
 
-            /*List<List<string>> final = new List<List<string>>(); var count_2 = 0;
+            List<List<string>> final = new List<List<string>>(); var count_2 = 0;
             foreach (var subList in propertyValues)
             {
                 var index = subList[0].IndexOf(':');
@@ -159,10 +157,10 @@ public partial class CameraAccessment : ContentPage
                         count_2++;
                     }
                 }
-            }*/
+            }
 
 
-            await popupNavigation.PushAsync(new MyMopup(propertyValues));
+            await popupNavigation.PushAsync(new MyMopup(final, resultTxt));
         }
         catch (Exception)
         {
@@ -174,7 +172,8 @@ public partial class CameraAccessment : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new AdminAuthentication());
+        //Navigation.PushAsync(new AdminAuthentication());
+        Navigation.PushAsync(new Authentication());
     }
 
     private void searchButtoon_Clicked(object sender, EventArgs e)
