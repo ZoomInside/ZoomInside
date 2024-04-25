@@ -172,8 +172,8 @@ public partial class CameraAccessment : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-        //Navigation.PushAsync(new AdminAuthentication());
-        Navigation.PushAsync(new Authentication());
+        Navigation.PushAsync(new AdminAuthentication());
+        //Navigation.PushAsync(new Authentication());
     }
 
     private void searchButtoon_Clicked(object sender, EventArgs e)

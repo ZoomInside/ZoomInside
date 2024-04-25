@@ -18,7 +18,7 @@
                        HorizontalOptions="Center"
                        Margin="5" />
 
-                <!--<Label Text="1. Натиснете един от двата бутона по-долу. С първия можете да направите снимка на съдържанието на продукт. С втория - да напишете директно веществото, което ви интересува."
+                <Label Text="1. Натиснете един от двата бутона по-долу. С първия можете да направите снимка на съдържанието на продукт. С втория - да напишете директно веществото, което ви интересува."
                        TextColor="#1A2123"
                        FontSize="18"
                        FontFamily="Comfortaa"
@@ -33,7 +33,7 @@
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"
-                       Margin="20, 0, 10, 0" />-->
+                       Margin="20, 0, 10, 0" />
 
             </StackLayout>
 
