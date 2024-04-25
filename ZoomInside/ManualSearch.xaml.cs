@@ -57,20 +57,30 @@ public partial class ManualSearch : ContentPage
             List<EsItem> dataList = firebaseObject.Select(x => x.Object).ToList();
 
 
-            List<List<string>> propertyValues = new List<List<string>>(); var count_1 = 0;
+            //List<List<string>> propertyValues = new List<List<string>>(); var count_1 = 0;
+            Dictionary<string, string> propertyValues = new Dictionary<string, string>();
             foreach (var item in dataList)
+            {
+                propertyValues.Add(item.DangerScale, item.Info);
+
+                /*propertyValues.Add(new List<string>());
+                propertyValues[count_1].Add(item.Info.ToLower());
+                propertyValues[count_1].Add(item.DangerScale);
+                count_1++;*/
+            }
+            /*foreach (var item in dataList)
             {
                 propertyValues.Add(new List<string>());
                 propertyValues[count_1].Add(item.Info.ToLower());
                 propertyValues[count_1].Add(item.DangerScale);
                 count_1++;
-            }
+            }*/
 
 
             // propertyValues -> данните от файърбейз 
             // resultTxt -> данните от снимката 
 
-            List<List<string>> final = new List<List<string>>(); var count_2 = 0;
+            /*List<List<string>> final = new List<List<string>>(); var count_2 = 0;
             foreach (var subList in propertyValues)
             {
                 var index = subList[0].IndexOf(':');
@@ -86,13 +96,13 @@ public partial class ManualSearch : ContentPage
                         count_2++;
                     }
                 }
-            }
+            }*/
 
             // Hide the activity indicator
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;
 
-            await popupNavigation.PushAsync(new MyMopup(final));
+            await popupNavigation.PushAsync(new MyMopup(propertyValues));
         }
         catch (Exception)
         {

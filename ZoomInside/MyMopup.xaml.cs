@@ -5,25 +5,26 @@ namespace ZoomInside;
 
 public partial class MyMopup
 {
-	public MyMopup(List<List<string>> res)
+	public MyMopup(/*List<List<string>> res*/ Dictionary<string, string> res)
 	{
 		InitializeComponent();
 
+        //TODO: if -> while
 		if (res.Count > 0)
 		{
-            foreach (var sublist in res)
+            foreach (var /*sublist*/ line in res)
             {
-				if (sublist[1] == "3")
+				if (/*sublist[1]*/ line.Key == "3")
 				{
-                    thirdLabel.Text += sublist[0] + "\n\n";
+                    thirdLabel.Text += /*sublist[0]*/ line.Value + "\n\n";
                 }
-                else if (sublist[1] == "2")
+                else if (/*sublist[1]*/ line.Key == "2")
                 {
-                    secondLabel.Text += sublist[0] + "\n\n";
+                    secondLabel.Text += /*sublist[0]*/ line.Value + "\n\n";
                 }
                 else
                 {
-                    firstLabel.Text += sublist[0] + "\n\n";
+                    firstLabel.Text += /*sublist[0]*/ line.Value + "\n\n";
                 }
             }
         }
