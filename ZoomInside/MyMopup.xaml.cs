@@ -1,4 +1,5 @@
 ﻿using Mopups.Services;
+using System.Net;
 using System.Text;
 //using Windows.Graphics.Printing3D;
 
@@ -11,31 +12,6 @@ public partial class MyMopup
 		InitializeComponent();
 
         //TODO: if -> while
-		if (res.Count > 0)
-		{
-            foreach (var sublist in res)
-            {
-				if (sublist[1] == "3")
-				{
-                    thirdLabel.Text += sublist[0] + "\n\n";
-                }
-                else if (sublist[1] == "2")
-                {
-                    secondLabel.Text += sublist[0] + "\n\n";
-                }
-                else
-                {
-                    firstLabel.Text += sublist[0] + "\n\n";
-                }
-            }
-        }
-		else
-		{
-            thirdLabel.TextColor = Color.FromHex("#1A2123");
-			thirdLabel.Text = "В продукта няма нищо притеснително.";
-		}
-
-
 
         var allergensData = new Dictionary<string, List<string>>() {
             {"Може да навреди на хора с непоносимост към глутен", new List<string>(){"пшеница", "ръж", "ечемик", "овес", "спелта", "камут" }},
@@ -58,10 +34,39 @@ public partial class MyMopup
                     if (item == resItem)
                     {
                         //allergensLabel.Text += line.Key + "\n\n";
-                        resultList.Add(line.Key);
+                        resultList.Add(item + ": " + line.Key);
                     }
                 }
             }
+        }
+
+
+        if (res.Count > 0)
+        {
+            foreach (var sublist in res)
+            {
+                if (sublist[1] == "3")
+                {
+                    thirdLabel.Text += sublist[0] + "\n\n";
+                }
+                else if (sublist[1] == "2")
+                {
+                    secondLabel.Text += sublist[0] + "\n\n";
+                }
+                else
+                {
+                    firstLabel.Text += sublist[0] + "\n\n";
+                }
+            }
+        }
+        else if (resultList.Count > 0)
+        {
+            //just skip
+        }
+        else
+        {
+            thirdLabel.TextColor = Color.FromHex("#1A2123");
+            thirdLabel.Text = "В продукта няма нищо притеснително.";
         }
 
         foreach (var item in resultList.Distinct())
